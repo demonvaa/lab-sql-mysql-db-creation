@@ -8,7 +8,7 @@ CREATE TABLE cars (
     VIN VARCHAR(20) NOT NULL, 
     manufacturer VARCHAR(50) NOT NULL,
     model VARCHAR(50) NOT NULL,
-    year INT NOT NULL,
+    car_year INT NOT NULL,
     color VARCHAR(30) NOT NULL,
     PRIMARY KEY (id) 
 );
@@ -25,7 +25,7 @@ CREATE TABLE customers (
     state_province VARCHAR(50) NOT NULL,
     country VARCHAR(50) NOT NULL,
     zip_postal_code VARCHAR(100) NOT NULL,
-    PRIMARY KEY (id) # 1 POR TABLA
+    PRIMARY KEY (id) 
 );
 
 -- TABLA SALESPERSONS--
@@ -34,7 +34,7 @@ CREATE TABLE salespersons (
 	id INT AUTO_INCREMENT NOT NULL,
     name VARCHAR(100) NOT NULL,
     store VARCHAR(100) NOT NULL,
-    PRIMARY KEY (id) # 1 POR TABLA
+    PRIMARY KEY (id) 
 );
 
 -- TABLA INVOICES
@@ -42,7 +42,7 @@ DROP TABLE IF EXISTS invoices;
 CREATE TABLE invoices (
 	id INT AUTO_INCREMENT NOT NULL,
     invoice_number INT  NOT NULL,
-    date DATETIME NOT NULL,
+    invoice_date DATE NOT NULL,
     car_id INT NOT NULL,
     customer_id INT NOT NULL,
     staff_id INT NOT NULL,
