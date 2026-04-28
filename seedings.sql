@@ -28,7 +28,7 @@ VALUES
 (00007, 'Walter Melon', 'Amsterdam'),
 (00008, 'Shonda Leer', 'São Paulo');
 
-# Si tu tabla Salespersons tiene AUTO_INCREMENT , No te dejará insertar IDs manuales.
+# Si tu tabla "Salespersons" tiene AUTO_INCREMENT , No te dejará insertar IDs manuales.
 
 
 INSERT INTO invoices (invoice_number, date, car_VIN, customer_ID, staff_ID)
