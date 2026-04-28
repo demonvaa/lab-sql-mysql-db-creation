@@ -1,4 +1,5 @@
-INSERT INTO cars (VIN, manufacturer, model, year, color)
+USE lab_mysql;
+INSERT INTO cars (vin, manufacturer, model, car_year, color)
 VALUES
 ('3K096I98581DHSNUP', 'Volkswagen', 'Tiguan', 2019, 'Blue'),
 ('ZM8G7BEUQZ97IH46V', 'Peugeot', 'Rifter', 2019, 'Red'),
@@ -31,29 +32,11 @@ VALUES
 # Si tu tabla "Salespersons" tiene AUTO_INCREMENT , No te dejará insertar IDs manuales.
 
 
-INSERT INTO invoices (invoice_number, date, car_id, customer_id, staff_id)
+INSERT INTO invoices (invoice_number, invoice_date, car_id, customer_id, staff_id)
 VALUES
-(
-  852399038,
-  '2018-08-22',
-  (SELECT id FROM cars WHERE id = 1),
-  (SELECT customer_id FROM customers WHERE id = 1),
-  (SELECT staff_id FROM salespersons WHERE id = 3)
-),
-(
-  731166526,
-  '2018-12-31',
-  (SELECT id FROM cars WHERE id = 3),
-  (SELECT customer_id FROM customers WHERE id = 2),
-  (SELECT staff_id FROM salespersons WHERE id = 5)
-),
-(
-  271135104,
-  '2019-01-22',
-  (SELECT id FROM cars WHERE id = 2),
-  (SELECT customer_id FROM customers WHERE id = 3),
-  (SELECT staff_id FROM salespersons WHERE id = 7)
-);
+(852399038, '2018-08-22', 1, 1, 3),
+(731166526, '2018-12-31', 3, 2, 5),
+(271135104, '2019-01-22', 2, 3, 7);
 	
 
 
