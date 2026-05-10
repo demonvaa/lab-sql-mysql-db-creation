@@ -12,17 +12,6 @@ DROP TABLE IF EXISTS cars;
 SET FOREIGN_KEY_CHECKS = 1; 
 
 -- ===========================
--- TABLE: salespersons
--- ===========================
-CREATE TABLE salespersons (
-    id INT AUTO_INCREMENT NOT NULL,
-    staff_id INT NOT NULL,
-    name VARCHAR(100) NOT NULL,
-    store VARCHAR(100) NOT NULL,
-    PRIMARY KEY (id)
-);
-
--- ===========================
 -- TABLE: cars
 -- ===========================
 CREATE TABLE cars (
@@ -35,22 +24,35 @@ CREATE TABLE cars (
     PRIMARY KEY (id)
 );
 
+
+
 -- ===========================
--- TABLE: customers
+-- TABLE: customers   
 -- ===========================
 CREATE TABLE customers (
     id INT AUTO_INCREMENT NOT NULL,
-    customer_id INT NOT NULL,
-    name VARCHAR(100) NOT NULL,
+    cusT_id INT NOT NULL,
+    cust_name VARCHAR(100) NOT NULL,
     phone_number VARCHAR(20) NOT NULL,
-    email VARCHAR(100),
-    address VARCHAR(100) NOT NULL,
-    city VARCHAR(50) NOT NULL,
-    state_province VARCHAR(50) NOT NULL,
-    country VARCHAR(50) NOT NULL,
-    zip_postal_code VARCHAR(20) NOT NULL,
+    cust_email VARCHAR(100),
+    cust_address VARCHAR(100) NOT NULL,
+    cust_city VARCHAR(50) NOT NULL,
+    cust_state VARCHAR(50) NOT NULL,
+    cust_country VARCHAR(50) NOT NULL,
+    cust_zip_postal VARCHAR(20) NOT NULL,
     PRIMARY KEY (id)
 );
+-- ===========================
+-- TABLE: salespersons
+-- ===========================
+CREATE TABLE salespersons (
+    id INT AUTO_INCREMENT NOT NULL,
+    staff_id INT NOT NULL,
+    name VARCHAR(100) NOT NULL,
+    store VARCHAR(100) NOT NULL,
+    PRIMARY KEY (id)
+);
+
 
 -- ===========================
 -- TABLE: invoices
@@ -59,9 +61,9 @@ CREATE TABLE invoices (
     id INT AUTO_INCREMENT NOT NULL,
     invoice_number INT NOT NULL,
     date DATE NOT NULL,
-    car_id INT NOT NULL,
-    customer_id INT NOT NULL,
-    staff_id INT NOT NULL,
+    car INT NOT NULL,
+    customer INT NOT NULL,
+    salesperson INT NOT NULL,
     PRIMARY KEY (id),
     FOREIGN KEY (car_id) REFERENCES cars(id),
     FOREIGN KEY (customer_id) REFERENCES customers(id),
