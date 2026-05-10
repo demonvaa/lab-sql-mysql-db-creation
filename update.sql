@@ -4,16 +4,16 @@ USE lab_mysql;
 SET SQL_SAFE_UPDATES = 0;
  
 UPDATE customers
-SET email = 'picasso@gmail.com'
-WHERE name = 'Pablo Picasso';
+SET cust_email = 'picasso@gmail.com'
+WHERE cust_name = 'Pablo Picasso';
 
 UPDATE customers
-SET email = 'lincoln@us.gov'
-WHERE name = 'Abraham Lincoln';
+SET cust_email = 'lincoln@us.gov'
+WHERE cust_name = 'Abraham Lincoln';
 
 UPDATE customers
-SET email = 'hello@napoleon.me'
-WHERE name = 'Napoléon Bonaparte';
+SET cust_email = 'hello@napoleon.me'
+WHERE cust_name = 'Napoléon Bonaparte';
 
 SET SQL_SAFE_UPDATES = 1;
 

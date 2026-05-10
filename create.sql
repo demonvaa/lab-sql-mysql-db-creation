@@ -1,15 +1,14 @@
 CREATE DATABASE IF NOT EXISTS lab_mysql;
 USE lab_mysql;
 
--- Desactivar foreign keys para evitar errores al borrar
-SET FOREIGN_KEY_CHECKS = 0; 
+SET FOREIGN_KEY_CHECKS = 0;
 
 DROP TABLE IF EXISTS invoices;
 DROP TABLE IF EXISTS salespersons;
 DROP TABLE IF EXISTS customers;
 DROP TABLE IF EXISTS cars;
 
-SET FOREIGN_KEY_CHECKS = 1; 
+SET FOREIGN_KEY_CHECKS = 1;
 
 -- ===========================
 -- TABLE: cars
@@ -24,24 +23,23 @@ CREATE TABLE cars (
     PRIMARY KEY (id)
 );
 
-
-
 -- ===========================
--- TABLE: customers   
+-- TABLE: customers
 -- ===========================
 CREATE TABLE customers (
     id INT AUTO_INCREMENT NOT NULL,
-    cusT_id INT NOT NULL,
+    cust_id INT NOT NULL,
     cust_name VARCHAR(100) NOT NULL,
-    phone_number VARCHAR(20) NOT NULL,
+    cust_phone VARCHAR(20) NOT NULL,
     cust_email VARCHAR(100),
     cust_address VARCHAR(100) NOT NULL,
     cust_city VARCHAR(50) NOT NULL,
     cust_state VARCHAR(50) NOT NULL,
     cust_country VARCHAR(50) NOT NULL,
-    cust_zip_postal VARCHAR(20) NOT NULL,
+    cust_zipcode VARCHAR(20) NOT NULL,
     PRIMARY KEY (id)
 );
+
 -- ===========================
 -- TABLE: salespersons
 -- ===========================
@@ -52,7 +50,6 @@ CREATE TABLE salespersons (
     store VARCHAR(100) NOT NULL,
     PRIMARY KEY (id)
 );
-
 
 -- ===========================
 -- TABLE: invoices
@@ -65,12 +62,12 @@ CREATE TABLE invoices (
     customer INT NOT NULL,
     salesperson INT NOT NULL,
     PRIMARY KEY (id),
-    FOREIGN KEY (car_id) REFERENCES cars(id),
-    FOREIGN KEY (customer_id) REFERENCES customers(id),
-    FOREIGN KEY (staff_id) REFERENCES salespersons(id)
+    FOREIGN KEY (car) REFERENCES cars(id),
+    FOREIGN KEY (customer) REFERENCES customers(id),
+    FOREIGN KEY (salesperson) REFERENCES salespersons(id)
 );
 
--- Comprobación opcional
+-- Comprobación
 SELECT * FROM cars;
 SELECT * FROM customers;
 SELECT * FROM salespersons;
